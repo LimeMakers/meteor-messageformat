@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var walk    = require('../.npm/package/node_modules/walk');
-var fs 		= require('fs')
+var fs 		= require('fs');
 var _       = require('underscore');
 var path	= require('path');
 var files   = [];
@@ -47,7 +47,8 @@ var walker  = walk.walk('.', { followLinks: false });
 
 walker.on('file', function(root, stat, next) {
     // Add this file to the list of files (skip .dirs)
-    if (root.substr(0,3) != './.' && stat.name.match(/html|js$/)) {
+    console.log(root + ', ' + stat.name);
+    if (root.substr(0,3) != './.' && root.substr() != 'packages/messageformat' && stat.name.match(/html|js$/)) {
 	    files.push(root + '/' + stat.name);
     }
     next();
