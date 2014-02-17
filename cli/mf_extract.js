@@ -47,7 +47,6 @@ var walker  = walk.walk('.', { followLinks: false });
 
 walker.on('file', function(root, stat, next) {
     // Add this file to the list of files (skip .dirs)
-    console.log(root + ', ' + stat.name);
     if (root.substr(0,3) != './.' && root.substr() != 'packages/messageformat' && stat.name.match(/html|js$/)) {
 	    files.push(root + '/' + stat.name);
     }
